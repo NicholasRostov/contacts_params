@@ -1,0 +1,22 @@
+<%= form_tag "/contacts_result", method: :post do %>
+<div>
+  <label for=""> Enter first name: </label>
+  <input type="text" name="input_first_name">
+</div>
+
+<div>
+  <label for=""> Enter last name: </label>
+  <input type="text" name="input_last_name">
+</div>
+
+<div>
+  <label for=""> Enter email: </label>
+  <input type="text" name="input_email">
+</div>
+
+<div>
+  <label for=""> Enter phone number: </label>
+  <input type="text" name="input_phone_number">
+</div>
+<input type="submit" value="Push me">
+<% end %>
