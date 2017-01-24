@@ -1,0 +1,8 @@
+<p> First name: <%= @contact.first_name %></p>
+<p> Last name: <%= @contact.last_name %></p>
+<p> Email: <%= @contact.email %></p>
+<p> Phone number: <%= @contact.phone_number %></p>
+<%= form_tag "/contacts/#{@contact.id}", method: :delete do %>
+  <input type="submit" value="Destroy Product">
+<%= link_to "Delete Me", "contacts/#{contact.id}", method: :delete %>
+<% end %>
