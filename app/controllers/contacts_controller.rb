@@ -28,7 +28,7 @@ end
 def create
 @contact = Contact.new(first_name: params[:first_name], last_name: params[:last_name], email: params[:email], phone_number: params[:phone_number])
 @contact.save
-render "create.html.erb"
+redirect_to "/contacts/#{@contact.id}"
 end
 
 def show
@@ -45,13 +45,13 @@ def update
 @contact = Contact.find_by(id: params[:id])
 @contact.assign_attributes(first_name: params[:first_name], last_name: params[:last_name], email: params[:email], phone_number: params[:phone_number])
 @contact.save
-render "update.html.erb"
+redirect_to "/contacts/#{@contact.id}"
 end
 
 def destroy
 @contact = Contact.find_by(id: params[:id])
 @contact.destroy
-render "destroy.html.erb"
+redirect_to "/contacts"
 end
 
 end

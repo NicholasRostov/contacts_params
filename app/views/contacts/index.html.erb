@@ -4,5 +4,6 @@
 <p><%= x.last_name %></p>
 <p><%= x.email %></p>
 <p><%= x.phone_number %></p>
+<%= link_to "Delete Me", "contacts/#{x.id}", method: :delete %>
 <p>--------</p>
 <% end %>
