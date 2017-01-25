@@ -1,9 +1,12 @@
 <h1>All Contacts</h1>
 <% @contact.each do |x|  %>
-<a href="/contacts/<%= x.id %>" =><%= x.first_name %></a>
-<p><%= x.last_name %></p>
+<a href="/contacts/<%= x.id %>"><%= x.full_name %></a>
 <p><%= x.email %></p>
-<p><%= x.phone_number %></p>
+<p><%= x.jap_phone %></p>
+<p>Added at:</p>
+<p><%= x.time %></p>
 <%= link_to "Delete Me", "contacts/#{x.id}", method: :delete %>
 <p>--------</p>
 <% end %>
+
+
