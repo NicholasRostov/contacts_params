@@ -4,5 +4,7 @@
 <p> Phone number: <%= @contact.phone_number %></p>
 <%= form_tag "/contacts/#{@contact.id}", method: :delete do %>
   <input type="submit" value="Destroy Product">
-<%= link_to "Delete Me", "contacts/#{contact.id}", method: :delete %>
+  <p>Latitude: <%= @contact.latitude %></p>
+  <p>Longitud: <%= @contact.longitud %> </p> 
+<%= link_to "Delete Me", "contacts/#{@contact.id}", method: :delete %>
 <% end %>

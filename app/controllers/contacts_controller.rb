@@ -26,7 +26,11 @@ render "new.html.erb"
 end
 
 def create
-@contact = Contact.new(first_name: params[:first_name], last_name: params[:last_name], email: params[:email], phone_number: params[:phone_number])
+  address = params[:input_address]
+  coordinates = Geocoder.coordinates(address)
+  latitude = coordinates[0]
+  longitud = coordinates[1]
+  @contact = Contact.new(first_name: params[:first_name], last_name: params[:last_name], email: params[:email], phone_number: params[:phone_number], longitud: longitud, latitude: latitude)
 @contact.save
 redirect_to "/contacts/#{@contact.id}"
 end
@@ -42,8 +46,12 @@ render "edit.html.erb"
 end
 
 def update
+   address = params[:input_address]
+  coordinates = Geocoder.coordinates(address)
+  latitude = coordinates[0]
+  longitud = coordinates[1]
 @contact = Contact.find_by(id: params[:id])
-@contact.assign_attributes(first_name: params[:first_name], last_name: params[:last_name], email: params[:email], phone_number: params[:phone_number])
+@contact.assign_attributes(first_name: params[:first_name], last_name: params[:last_name], email: params[:email], phone_number: params[:phone_number],  longitud: longitud, latitude:latitude)
 @contact.save
 redirect_to "/contacts/#{@contact.id}"
 end
