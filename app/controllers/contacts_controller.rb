@@ -17,8 +17,12 @@ def first_contact
   end
 
 def index
-@contact = Contact.all
-render "index.html.erb"
+  @contact = Contact.all
+  if params[:group]
+    selected_group = Group.find_by(name: params[:group])
+    @contacts = selected_group.contacts.
+  end
+  render "index.html.erb"
 end
   
 def new

@@ -1,4 +1,7 @@
 class Contact < ApplicationRecord
+  has_many :groups
+  has_many :contact_groups
+  has_many :groups, through: :contact_groups
 
 def time
 created_at.strftime("%b %d, %Y")
